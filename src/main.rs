@@ -1,9 +1,7 @@
 use std::{io};
+mod  reader;
 fn main() {
     //collecting input
-    
-    
-     
     loop {
         let mut input = String::new();
         io::stdin()
@@ -12,6 +10,8 @@ fn main() {
 
         if input.contains("exit") {
             break;
+        }else if input.contains("read") {
+            reader::read_file("hello.txt")
         }
     }
 }
