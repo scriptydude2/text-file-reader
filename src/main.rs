@@ -1,6 +1,8 @@
 use std::{io};
-mod  reader;
+mod commands;
+
 fn main() {
+    let commands: [String; 2] = ["exit".to_string(),"read".to_string()];
     //collecting input
     loop {
         let mut input = String::new();
@@ -8,11 +10,15 @@ fn main() {
          .read_line(&mut input)
          .expect("failed to read line");
 
-        if input.contains("exit") {
-            break;
-        }else if input.contains("read") {
-            reader::read_file("hello.txt")
-        }
+         let first_word = input
+      .split_whitespace()
+      .next()
+      .unwrap_or("");
+
+      if commands.contains(&first_word.to_string()) {
+          
+      }
+        
     }
 }
 
