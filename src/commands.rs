@@ -1,19 +1,17 @@
-use std::io;
 
 
-
-pub fn run(cmnd: String) {
+pub fn run(cmnd: String, raw_input: String) {
     let cmnd_raw = cmnd.as_str();
 
     match cmnd_raw {
-        "exit" => exit_command(),
+        "create" => create_command(raw_input),
         _ => println!("yoo")
     }
 }
 
 //commands (private)
 
-fn exit_command() {
-    println!("bye bye im go sleepie");
+fn create_command(_raw_input: String) {
+    
     
 }

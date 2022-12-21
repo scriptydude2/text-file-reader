@@ -1,16 +1,12 @@
 use std::{io};
 mod commands;
 
-static  mut PROCCESS: bool = false;
+
 fn main() {
-    let commands: [String; 2] = ["exit".to_string(),"read".to_string()];
+    let commands: [String; 2] = ["create".to_string(),"read".to_string()];
     //collecting input
     loop {
-        unsafe{
-            if PROCCESS {
-                break;
-            }
-        }
+        
         
 
 
@@ -25,15 +21,8 @@ fn main() {
       .unwrap_or("");
 
       if commands.contains(&first_word.to_string()) {
-          println!("{}", first_word)
+          commands::run(first_word.to_string(), input.to_string());
       }
         
     }
 }
-pub fn kill() {
-    unsafe{
-        PROCCESS = true;
-    }
-    
-}
-
